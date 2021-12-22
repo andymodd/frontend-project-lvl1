@@ -1,10 +1,8 @@
-import readlineSync from 'readline-sync';
-
+import { greet, getRandomNumber, checkAnswer, askQuestion } from '../index.js';
 const isEven = (number) => (number % 2 === 0);
 
 const startGame = () => {
-  console.log('Welcome to the Brain Games!');
-  const playerName = readlineSync.question('May I have your name? ');
+  const playerName = greet('May I have your name? ');
   console.log(`Hello, ${playerName}!`);
   const numberOfGames = 3;
   for (let i = 0; i < numberOfGames; i += 1) {
