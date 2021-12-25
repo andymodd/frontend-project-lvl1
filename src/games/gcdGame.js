@@ -18,6 +18,7 @@ const startGame = () => {
     }
   };
   const userName = greetUser();
+  console.log('Find the greatest common divisor of given numbers.');
   for (let counter = 0; counter < numberOfGames; counter += 1) {
     const firstNumber = getRandomNumber(100);
     const secondNumber = getRandomNumber(100);
