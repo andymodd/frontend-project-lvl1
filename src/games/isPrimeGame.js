@@ -21,7 +21,7 @@ const startGame = () => {
     const rightAnswer = isPrime(numbeInGame) ? 'yes' : 'no';
     const userAnswer = askQuestionAndGetAnswer('Your question: ');
     if (!checkAnswer(userAnswer, rightAnswer)) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. \nLet's try again, ${userName}`);
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. \nLet's try again, ${userName}!`);
       return;
     }
     console.log('Correct!');

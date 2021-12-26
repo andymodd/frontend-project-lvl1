@@ -25,7 +25,7 @@ const startGame = () => {
     const userAnswer = Number(askQuestionAndGetAnswer(`Question: ${firstNumber} ${secondNumber} `));
     const rightAnswer = calculateGCD(firstNumber, secondNumber);
     if (!checkAnswer(userAnswer, rightAnswer)) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. \nLet's try again, ${userName}`);
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. \nLet's try again, ${userName}!`);
       return;
     }
     console.log('Correct!');

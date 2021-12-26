@@ -33,7 +33,7 @@ const startGame = () => {
     const userAnswer = askQuestionAndGetAnswer(createQuestion(progression, indexOfMissingItem));
     const userAnswerToNumber = Number(userAnswer);
     if (!checkAnswer(userAnswerToNumber, rightAnswer)) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. \nLet's try again, ${userName}`);
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. \nLet's try again, ${userName}!`);
       return;
     }
     console.log('Correct!');

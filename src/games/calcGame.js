@@ -26,7 +26,7 @@ const startGame = () => {
       default:
     }
     if (!checkAnswer(userAnswer, rightAnswer)) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.\n Let's try again, ${userName}`);
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.\n Let's try again, ${userName}!`);
       return;
     }
     console.log('Correct!');
