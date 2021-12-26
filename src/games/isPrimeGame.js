@@ -3,13 +3,22 @@ import {
 } from '../index.js';
 
 const startGame = () => {
-  const isEven = (number) => (number % 2 === 0);
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  const isPrime = (number) => {
+    let counter = 2;
+    do {
+      if (number % counter === 0) {
+        return false;
+      }
+      counter += 1;
+    } while (counter < number);
+    return true;
+  };
   const userName = greetUser();
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   for (let i = 0; i < numberOfGames; i += 1) {
     const numbeInGame = getRandomNumber(100);
     console.log(`Question: ${numbeInGame}`);
-    const rightAnswer = isEven(numbeInGame) ? 'yes' : 'no';
+    const rightAnswer = isPrime(numbeInGame) ? 'yes' : 'no';
     const userAnswer = askQuestionAndGetAnswer('Your question: ');
     if (!checkAnswer(userAnswer, rightAnswer)) {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. \nLet's try again, ${userName}`);
