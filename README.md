@@ -6,3 +6,5 @@
 https://asciinema.org/a/457734 - asciinema about how is brain-even game working
 https://asciinema.org/a/458340 - asciinema about how is brain-calc game working
 https://asciinema.org/a/458373 - asciinema about how is brain-gcd game working
+https://asciinema.org/a/458602 - asciinema about how is brain-progression working
+https://asciinema.org/a/458603 - asciinema about how is brain-prime working
