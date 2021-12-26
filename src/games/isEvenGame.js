@@ -4,8 +4,8 @@ import {
 
 const startGame = () => {
   const isEven = (number) => (number % 2 === 0);
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
   const userName = greetUser();
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 0; i < numberOfGames; i += 1) {
     const numbeInGame = getRandomNumber(100);
     console.log(`Question: ${numbeInGame}`);
