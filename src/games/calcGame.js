@@ -10,7 +10,7 @@ const startGame = () => {
     const firstOperand = getRandomNumber(100);
     const secondOperand = getRandomNumber(100);
     const operator = arithmeticOperators[getRandomNumber(2)];
-    const question = `${firstOperand} ${operator} ${secondOperand} `;
+    const question = `Question: ${firstOperand} ${operator} ${secondOperand} `;
     const userAnswer = Number(askQuestionAndGetAnswer(question));
     let rightAnswer;
     switch (operator) {
