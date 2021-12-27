@@ -5,15 +5,19 @@ import {
 const startGame = () => {
   // eslint-disable-next-line consistent-return
   const calculateGCD = (num1, num2, gcd = 1) => {
-    const min = (number1, number2) => (number1 > number2 ? number2 : number1);
+    const findMin = (number1, number2) => (number1 > number2 ? number2 : number1);
+    const findMax = (number1, number2) => (number1 > number2 ? number1 : number2);
+    if (num1 === 0 || num2 === 0) {
+      return findMax(num1, num2);
+    }
     let divider = 2;
-    while (divider <= min(num1, num2)) {
+    while (divider <= findMin(num1, num2)) {
       if (num1 % divider === 0 && num2 % divider === 0) {
         return calculateGCD(num1 / divider, num2 / divider, gcd * divider);
       }
       divider += 1;
     }
-    if (divider > min(num1, num2)) {
+    if (divider > findMin(num1, num2)) {
       return gcd;
     }
   };
