@@ -16,7 +16,7 @@ const startGame = () => {
     return progression;
   };
   const createQuestion = (progression, indexOfMissingItem) => {
-    let question = '';
+    let question = 'Question:';
     for (let i = 0; i < progression.length; i += 1) {
       if (i === indexOfMissingItem) {
         question += ' .. ';
