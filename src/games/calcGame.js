@@ -6,6 +6,7 @@ const arithmeticOperators = ['+', '-', '*'];
 
 const startGame = () => {
   const userName = greetUser();
+  console.log('What is the result of the expression?');
   for (let counter = 0; counter < numberOfGames; counter += 1) {
     const firstOperand = getRandomNumber(100);
     const secondOperand = getRandomNumber(100);
