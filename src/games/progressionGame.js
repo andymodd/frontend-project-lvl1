@@ -16,15 +16,10 @@ const startGame = () => {
     return progression;
   };
   const createQuestion = (progression, indexOfMissingItem) => {
-    let question = 'Question:';
-    for (let i = 0; i < progression.length; i += 1) {
-      if (i === indexOfMissingItem) {
-        question += '..';
-      } else {
-        question += ` ${progression[i]} `;
-      }
-    }
-    return question;
+    const progressionWithMissedNumber = [...progression];
+    progressionWithMissedNumber[indexOfMissingItem] = '..';
+    const question = 'Question: ';
+    return question + progressionWithMissedNumber.join(' ');
   };
   for (let counter = 0; counter < numberOfGames; counter += 1) {
     const progression = createProgression();
