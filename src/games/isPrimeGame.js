@@ -4,6 +4,9 @@ import {
 
 const startGame = () => {
   const isPrime = (number) => {
+    if (number === 1) {
+      return false;
+    }
     let counter = 2;
     do {
       if (number % counter === 0) {
