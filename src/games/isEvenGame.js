@@ -1,23 +1,19 @@
-import {
-  numberOfGames, getRandomNumber, checkAnswer, askQuestionAndGetAnswer, greetUser,
-} from '../index.js';
+import { startGame, getRandomNumber, numberOfGames } from '../index.js';
 
-const startGame = () => {
-  const isEven = (number) => (number % 2 === 0);
-  const userName = greetUser();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 0; i < numberOfGames; i += 1) {
-    const numbeInGame = getRandomNumber(100);
-    console.log(`Question: ${numbeInGame}`);
-    const rightAnswer = isEven(numbeInGame) ? 'yes' : 'no';
-    const userAnswer = askQuestionAndGetAnswer('Your question: ');
-    if (!checkAnswer(userAnswer, rightAnswer)) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. \nLet's try again, ${userName}!`);
-      return;
+const startIsEvenGame = () => {
+  const ruleOfGame = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const isEven = (number) => (number % 2 === 0 ? 'yes' : 'no');
+  const questions = [];
+  const rightAnswers = [];
+  const createQuestions = () => {
+    for (let i = 0; i < numberOfGames; i += 1) {
+      const question = getRandomNumber(100);
+      questions.push(question);
+      rightAnswers.push(isEven(question));
     }
-    console.log('Correct!');
-  }
-  console.log(`Congratulations, ${userName}!`);
+  };
+  createQuestions();
+  startGame(ruleOfGame, questions, rightAnswers, numberOfGames);
 };
 
-export default startGame;
+export default startIsEvenGame;
