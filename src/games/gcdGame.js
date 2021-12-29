@@ -1,8 +1,6 @@
-import {
-  numberOfGames, getRandomNumber, checkAnswer, askQuestionAndGetAnswer, greetUser,
-} from '../index.js';
+import { startGame, getRandomNumber, numberOfGames } from '../index.js';
 
-const startGame = () => {
+const startGcdGame = () => {
   // eslint-disable-next-line consistent-return
   const calculateGCD = (num1, num2, gcd = 1) => {
     const findMin = (number1, number2) => (number1 > number2 ? number2 : number1);
@@ -21,20 +19,20 @@ const startGame = () => {
       return gcd;
     }
   };
-  const userName = greetUser();
-  console.log('Find the greatest common divisor of given numbers.');
-  for (let counter = 0; counter < numberOfGames; counter += 1) {
-    const firstNumber = getRandomNumber(100);
-    const secondNumber = getRandomNumber(100);
-    const userAnswer = Number(askQuestionAndGetAnswer(`Question: ${firstNumber} ${secondNumber} `));
-    const rightAnswer = calculateGCD(firstNumber, secondNumber);
-    if (!checkAnswer(userAnswer, rightAnswer)) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. \nLet's try again, ${userName}!`);
-      return;
+  const ruleOfGame = 'Find the greatest common divisor of given numbers.';
+  const questions = [];
+  const rightAnswers = [];
+  const createQuestions = () => {
+    for (let i = 0; i < numberOfGames; i += 1) {
+      const firstNumber = getRandomNumber(100);
+      const secondNumber = getRandomNumber(100);
+      const rightAnswer = `${calculateGCD(firstNumber, secondNumber)}`;
+      questions.push(`${firstNumber} ${secondNumber}`);
+      rightAnswers.push(rightAnswer);
     }
-    console.log('Correct!');
-  }
-  console.log(`Congratulations, ${userName}!`);
+  };
+  createQuestions();
+  startGame(ruleOfGame, questions, rightAnswers, numberOfGames);
 };
 
-export default startGame;
+export default startGcdGame;
