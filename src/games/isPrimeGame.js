@@ -1,11 +1,12 @@
-import {
-  numberOfGames, getRandomNumber, checkAnswer, askQuestionAndGetAnswer, greetUser,
-} from '../index.js';
+import { startGame, getRandomNumber, numberOfGames } from '../index.js';
 
-const startGame = () => {
+const startIsPrimeGame = () => {
   const isPrime = (number) => {
     if (number === 1) {
       return false;
+    }
+    if (number === 2) {
+      return true;
     }
     let counter = 2;
     do {
@@ -16,20 +17,21 @@ const startGame = () => {
     } while (counter < number);
     return true;
   };
-  const userName = greetUser();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  for (let i = 0; i < numberOfGames; i += 1) {
-    const numbeInGame = getRandomNumber(100);
-    console.log(`Question: ${numbeInGame}`);
-    const rightAnswer = isPrime(numbeInGame) ? 'yes' : 'no';
-    const userAnswer = askQuestionAndGetAnswer('Your question: ');
-    if (!checkAnswer(userAnswer, rightAnswer)) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. \nLet's try again, ${userName}!`);
-      return;
+  const ruleOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const questions = [];
+  const rightAnswers = [];
+  const createQuestions = () => {
+    for (let i = 0; i < numberOfGames; i += 1) {
+      console.log(questions, rightAnswers);
+      const numbeInGame = getRandomNumber(100);
+      const rightAnswer = isPrime(numbeInGame) ? 'yes' : 'no';
+      questions.push(numbeInGame);
+      rightAnswers.push(rightAnswer);
+      console.log(questions, rightAnswers, numbeInGame);
     }
-    console.log('Correct!');
-  }
-  console.log(`Congratulations, ${userName}!`);
+  };
+  createQuestions();
+  startGame(ruleOfGame, questions, rightAnswers, numberOfGames);
 };
 
-export default startGame;
+export default startIsPrimeGame;
