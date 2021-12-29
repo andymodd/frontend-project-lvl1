@@ -1,24 +1,24 @@
 import readlineSync from 'readline-sync';
 import _ from 'lodash';
 
-const numberOfGames = 3;
-
-const askQuestionAndGetAnswer = (question) => {
-  const answer = readlineSync.question(question);
-  return answer;
-};
-
-const greetUser = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = askQuestionAndGetAnswer('May I have your name? ');
-  console.log(`Hello, ${userName}`);
-  return userName;
-};
-
 const getRandomNumber = (min, max) => _.random(min, max);
 
-const checkAnswer = (userAnswer, rightAnswer) => userAnswer === rightAnswer;
+const numberOfGames = 3;
 
-export {
-  numberOfGames, getRandomNumber, checkAnswer, askQuestionAndGetAnswer, greetUser,
+const startGame = (ruleOfGame, questions, rightAnswers, amountOfGames) => {
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+  console.log(ruleOfGame);
+  for (let counter = 0; counter < amountOfGames; counter += 1) {
+    const userAnswer = readlineSync.question(`Question: ${questions[counter]} `);
+    if (userAnswer !== rightAnswers[counter]) {
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswers[counter]}. \nLet's try again, ${userName}!`);
+      return;
+    }
+    console.log('Correct!');
+  }
+  console.log(`Congratulations, ${userName}!`);
 };
+
+export { startGame, getRandomNumber, numberOfGames };
