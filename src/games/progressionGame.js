@@ -1,10 +1,9 @@
-import {
-  numberOfGames, getRandomNumber, checkAnswer, askQuestionAndGetAnswer, greetUser,
-} from '../index.js';
+import { startGame, getRandomNumber, numberOfGames } from '../index.js';
 
-const startGame = () => {
-  const userName = greetUser();
-  console.log('What number is missing in the progression?');
+const startProgressionGame = () => {
+  const ruleOfGame = 'What number is missing in the progression?';
+  const questions = [];
+  const rightAnswers = [];
   const createProgression = () => {
     const length = getRandomNumber(5, 10);
     const progression = [];
@@ -15,25 +14,18 @@ const startGame = () => {
     }
     return progression;
   };
-  const createQuestion = (progression, indexOfMissingItem) => {
-    const progressionWithMissedNumber = [...progression];
-    progressionWithMissedNumber[indexOfMissingItem] = '..';
-    const question = 'Question: ';
-    return question + progressionWithMissedNumber.join(' ');
-  };
-  for (let counter = 0; counter < numberOfGames; counter += 1) {
-    const progression = createProgression();
-    const indexOfMissingItem = getRandomNumber(progression.length - 1);
-    const rightAnswer = progression[indexOfMissingItem];
-    const userAnswer = askQuestionAndGetAnswer(createQuestion(progression, indexOfMissingItem));
-    const userAnswerToNumber = Number(userAnswer);
-    if (!checkAnswer(userAnswerToNumber, rightAnswer)) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}. \nLet's try again, ${userName}!`);
-      return;
+  const createQuestions = () => {
+    for (let i = 0; i < numberOfGames; i += 1) {
+      const progression = createProgression();
+      const indexOfMissingItem = getRandomNumber(progression.length - 1);
+      const rightAnswer = progression[indexOfMissingItem];
+      progression[indexOfMissingItem] = '..';
+      questions.push(progression.join(' '));
+      rightAnswers.push(`${rightAnswer}`);
     }
-    console.log('Correct!');
-  }
-  console.log(`Congratulations, ${userName}!`);
+  };
+  createQuestions();
+  startGame(ruleOfGame, questions, rightAnswers, numberOfGames);
 };
 
-export default startGame;
+export default startProgressionGame;
