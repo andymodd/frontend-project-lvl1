@@ -1,31 +1,33 @@
 import { startGame, getRandomNumber, numberOfGames } from '../index.js';
 
+const ruleOfGame = 'What number is missing in the progression?';
+const createProgression = (length, firstItem, stepOfProgresstion) => {
+  const progression = [];
+  progression[0] = firstItem;
+  for (let i = 1; i < length; i += 1) {
+    progression[i] = progression[i - 1] + stepOfProgresstion;
+  }
+  return progression;
+};
 const startProgressionGame = () => {
-  const ruleOfGame = 'What number is missing in the progression?';
-  const questions = [];
-  const rightAnswers = [];
-  const createProgression = () => {
-    const length = getRandomNumber(5, 10);
-    const progression = [];
-    progression[0] = getRandomNumber(100);
-    const stepOfProgresstion = getRandomNumber(10);
-    for (let i = 1; i < length; i += 1) {
-      progression[i] = progression[i - 1] + stepOfProgresstion;
-    }
-    return progression;
-  };
-  const createQuestions = () => {
+  const createQuestionsAndAnswers = () => {
+    const questionsAndAnswers = [];
     for (let i = 0; i < numberOfGames; i += 1) {
-      const progression = createProgression();
+      questionsAndAnswers[i] = [];
+      const length = getRandomNumber(5, 10);
+      const firstItem = getRandomNumber(100);
+      const stepOfProgresstion = getRandomNumber(10);
+      const progression = createProgression(length, firstItem, stepOfProgresstion);
       const indexOfMissingItem = getRandomNumber(progression.length - 1);
       const rightAnswer = progression[indexOfMissingItem];
       progression[indexOfMissingItem] = '..';
-      questions.push(progression.join(' '));
-      rightAnswers.push(`${rightAnswer}`);
+      questionsAndAnswers[i][0] = progression.join(' ');
+      questionsAndAnswers[i][1] = `${rightAnswer}`;
     }
+    return questionsAndAnswers;
   };
-  createQuestions();
-  startGame(ruleOfGame, questions, rightAnswers, numberOfGames);
+  const questionsAndAnswers = createQuestionsAndAnswers();
+  startGame(ruleOfGame, questionsAndAnswers, numberOfGames);
 };
 
 export default startProgressionGame;

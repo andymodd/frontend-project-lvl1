@@ -1,28 +1,20 @@
 import { startGame, getRandomNumber, numberOfGames } from '../index.js';
 
+const ruleOfGame = 'Answer "yes" if the number is even, otherwise answer "no".';
+const isEven = (number) => (number % 2 === 0);
 const startIsEvenGame = () => {
-  const ruleOfGame = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const isEven = (number) => (number % 2 === 0 ? 'yes' : 'no');
-  const createQuestions = () => {
-    const questions = [];
+  const createQuestionsAndAnswers = () => {
+    const questionsAndAnswers = [];
     for (let i = 0; i < numberOfGames; i += 1) {
       const question = getRandomNumber(100);
-      questions.push(question);
+      questionsAndAnswers[i] = [];
+      questionsAndAnswers[i][0] = question;
+      questionsAndAnswers[i][1] = isEven(question) ? 'yes' : 'no';
     }
-    return questions;
+    return questionsAndAnswers;
   };
-  const createRightAnswers = (questionsOfGame) => {
-    const rightAnswers = [];
-    for (let i = 0; i < questionsOfGame.length; i += 1) {
-      const rightAnswer = isEven(questionsOfGame[i]);
-      rightAnswers.push(rightAnswer);
-    }
-    return rightAnswers;
-  };
-  const questions = createQuestions();
-  const rightAnswers = createRightAnswers(questions);
-  createQuestions(questions);
-  startGame(ruleOfGame, questions, rightAnswers, numberOfGames);
+  const questionsAndAnswers = createQuestionsAndAnswers();
+  startGame(ruleOfGame, questionsAndAnswers, numberOfGames);
 };
 
 export default startIsEvenGame;
