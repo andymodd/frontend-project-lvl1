@@ -12,7 +12,6 @@ const isPrime = (number) => {
     if (number % counter === 0) {
       return false;
     }
-    counter += 1;
   }
   return true;
 };
