@@ -15,20 +15,20 @@ const isPrime = (number) => {
   }
   return true;
 };
+const createQuestionsAndAnswers = () => {
+  const questionsAndAnswers = [];
+  for (let i = 0; i < numberOfGames; i += 1) {
+    const question = getRandomNumber(100);
+    const rightAnswer = isPrime(question) ? 'yes' : 'no';
+    questionsAndAnswers[i] = [];
+    questionsAndAnswers[i][0] = question;
+    questionsAndAnswers[i][1] = rightAnswer;
+  }
+  return questionsAndAnswers;
+};
 const startIsPrimeGame = () => {
-  const createQuestionsAndAnswers = () => {
-    const questionsAndAnswers = [];
-    for (let i = 0; i < numberOfGames; i += 1) {
-      const question = getRandomNumber(100);
-      const rightAnswer = isPrime(question) ? 'yes' : 'no';
-      questionsAndAnswers[i] = [];
-      questionsAndAnswers[i][0] = question;
-      questionsAndAnswers[i][1] = rightAnswer;
-    }
-    return questionsAndAnswers;
-  };
   const questionsAndAnswers = createQuestionsAndAnswers();
-  startGame(ruleOfGame, questionsAndAnswers, numberOfGames);
+  startGame(ruleOfGame, questionsAndAnswers);
 };
 
 export default startIsPrimeGame;

@@ -5,7 +5,7 @@ const getRandomNumber = (min, max) => _.random(min, max);
 
 const numberOfGames = 3;
 
-const startGame = (ruleOfGame, questionsAndAnswers, amountOfGames) => {
+const startGame = (ruleOfGame, questionsAndAnswers, amountOfGames = numberOfGames) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
