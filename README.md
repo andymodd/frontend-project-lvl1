@@ -21,7 +21,7 @@ brain-calc is a game in which you have to calculate an mathematics expression.
 
 3. ### brain-gcd
 brain-gcd is a game in which you have to determine greatest common divider of two numbers.
-[![asciicast](hhttps://asciinema.org/a/458373.png)](https://asciinema.org/a/458373) - asciinema about how is brain-gcd game working.
+[![asciicast](https://asciinema.org/a/458373.png)](https://asciinema.org/a/458373) - asciinema about how is brain-gcd game working.
 
 4. ### brain-progression
 brain-progression is a game in which you have to find a missed number and fill the gap in a progression.
