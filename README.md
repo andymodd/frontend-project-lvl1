@@ -12,19 +12,24 @@ Brain-games is a package which offers you five terminal based games such as:
 - brain-prime
 ## Description of each game
 1. ### brain-even
-brain-even is a game in which you're given a number and you need to decide is a number even or odd. https://asciinema.org/a/457734 - asciinema about how is brain-even game working.
+brain-even is a game in which you're given a number and you need to decide is a number even or odd. 
+[![asciicast](https://asciinema.org/a/457734.png)](https://asciinema.org/a/457734) - asciinema about how is brain-even game working.
 
 2. ### brain-calc
-brain-calc is a game in which you have to calculate an mathematics expression. https://asciinema.org/a/458340 - asciinema about how is brain-calc game working.
+brain-calc is a game in which you have to calculate an mathematics expression.
+[![asciicast](https://asciinema.org/a/458340.png)](https://asciinema.org/a/458340)- asciinema about how is brain-calc game working.
 
 3. ### brain-gcd
-brain-gcd is a game in which you have to determine greatest common divider of two numbers. https://asciinema.org/a/458373 - asciinema about how is brain-gcd game working.
+brain-gcd is a game in which you have to determine greatest common divider of two numbers.
+[![asciicast](hhttps://asciinema.org/a/458373.png)](https://asciinema.org/a/458373)- asciinema about how is brain-gcd game working.
 
 4. ### brain-progression
-brain-progression is a game in which you have to find a missed number and fill the gap in a progression. https://asciinema.org/a/458602 - asciinema about how is brain-progression working.
+brain-progression is a game in which you have to find a missed number and fill the gap in a progression.
+[![asciicast](https://asciinema.org/a/458602.png)](https://asciinema.org/a/458602)- asciinema about how is brain-progression working.
 
 5. ### brain-prime
-brain-prime is a game in which you're given a number and you need to decide is a number prime or not. https://asciinema.org/a/458603 - asciinema about how is brain-prime working.
+brain-prime is a game in which you're given a number and you need to decide is a number prime or not.
+[![asciicast](https://asciinema.org/a/458603.png)](https://asciinema.org/a/458603) - asciinema about how is brain-prime working.
 
 ## Setup
 
