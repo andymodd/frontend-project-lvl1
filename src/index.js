@@ -1,7 +1,4 @@
 import readlineSync from 'readline-sync';
-import _ from 'lodash';
-
-const getRandomNumber = (min, max) => _.random(min, max);
 
 const numberOfGames = 3;
 
@@ -22,4 +19,4 @@ const startGame = (ruleOfGame, questionsAndAnswers, amountOfGames = numberOfGame
   console.log(`Congratulations, ${userName}!`);
 };
 
-export { startGame, getRandomNumber, numberOfGames };
+export { startGame, numberOfGames };
