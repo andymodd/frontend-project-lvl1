@@ -18,21 +18,18 @@ const calculateGCD = (num1, num2, gcd = 1) => {
     return gcd;
   }
 };
-const createQuestionsAndAnswers = () => {
-  const questionsAndAnswers = [];
-  for (let i = 0; i < numberOfGames; i += 1) {
-    const firstNumber = getRandomNumber(100);
-    const secondNumber = getRandomNumber(100);
-    const question = `${firstNumber} ${secondNumber}`;
-    const rightAnswer = `${calculateGCD(firstNumber, secondNumber)}`;
-    questionsAndAnswers[i] = [];
-    questionsAndAnswers[i][0] = question;
-    questionsAndAnswers[i][1] = rightAnswer;
-  }
-  return questionsAndAnswers;
+const createQuestionAndAnswer = () => {
+  const firstNumber = getRandomNumber(100);
+  const secondNumber = getRandomNumber(100);
+  const question = `${firstNumber} ${secondNumber}`;
+  const answer = `${calculateGCD(firstNumber, secondNumber)}`;
+  return [question, answer];
 };
 const startGcdGame = () => {
-  const questionsAndAnswers = createQuestionsAndAnswers();
+  const questionsAndAnswers = [];
+  for (let i = 0; i < numberOfGames; i += 1) {
+    questionsAndAnswers.push(createQuestionAndAnswer());
+  }
   startGame(ruleOfGame, questionsAndAnswers);
 };
 

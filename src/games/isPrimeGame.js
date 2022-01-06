@@ -16,19 +16,16 @@ const isPrime = (number) => {
   }
   return true;
 };
-const createQuestionsAndAnswers = () => {
-  const questionsAndAnswers = [];
-  for (let i = 0; i < numberOfGames; i += 1) {
-    const question = getRandomNumber(100);
-    const rightAnswer = isPrime(question) ? 'yes' : 'no';
-    questionsAndAnswers[i] = [];
-    questionsAndAnswers[i][0] = question;
-    questionsAndAnswers[i][1] = rightAnswer;
-  }
-  return questionsAndAnswers;
+const createQuestionAndAnswer = () => {
+  const question = getRandomNumber(100);
+  const answer = isPrime(question) ? 'yes' : 'no';
+  return [question, answer];
 };
 const startIsPrimeGame = () => {
-  const questionsAndAnswers = createQuestionsAndAnswers();
+  const questionsAndAnswers = [];
+  for (let i = 0; i < numberOfGames; i += 1) {
+    questionsAndAnswers.push(createQuestionAndAnswer());
+  }
   startGame(ruleOfGame, questionsAndAnswers);
 };
 

@@ -10,24 +10,22 @@ const createProgression = (length, firstItem, stepOfProgresstion) => {
   }
   return progression;
 };
-const createQuestionsAndAnswers = () => {
-  const questionsAndAnswers = [];
-  for (let i = 0; i < numberOfGames; i += 1) {
-    questionsAndAnswers[i] = [];
-    const length = getRandomNumber(5, 10);
-    const firstItem = getRandomNumber(100);
-    const stepOfProgresstion = getRandomNumber(10);
-    const progression = createProgression(length, firstItem, stepOfProgresstion);
-    const indexOfMissingItem = getRandomNumber(progression.length - 1);
-    const rightAnswer = progression[indexOfMissingItem];
-    progression[indexOfMissingItem] = '..';
-    questionsAndAnswers[i][0] = progression.join(' ');
-    questionsAndAnswers[i][1] = `${rightAnswer}`;
-  }
-  return questionsAndAnswers;
+const createQuestionAndAnswer = () => {
+  const length = getRandomNumber(5, 10);
+  const firstItem = getRandomNumber(100);
+  const stepOfProgresstion = getRandomNumber(10);
+  const progression = createProgression(length, firstItem, stepOfProgresstion);
+  const indexOfMissingItem = getRandomNumber(progression.length - 1);
+  const answer = progression[indexOfMissingItem];
+  progression[indexOfMissingItem] = '..';
+  const question = progression.join(' ');
+  return [question, answer];
 };
 const startProgressionGame = () => {
-  const questionsAndAnswers = createQuestionsAndAnswers();
+  const questionsAndAnswers = [];
+  for (let i = 0; i < numberOfGames; i += 1) {
+    questionsAndAnswers.push(createQuestionAndAnswer());
+  }
   startGame(ruleOfGame, questionsAndAnswers);
 };
 
