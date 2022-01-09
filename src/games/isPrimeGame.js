@@ -1,7 +1,8 @@
+import _ from 'lodash';
 import { startGame, numberOfGames } from '../index.js';
-import getRandomNumber from '../utils.js';
 
 const ruleOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 const isPrime = (number) => {
   if (number < 2) {
     return false;
@@ -16,11 +17,13 @@ const isPrime = (number) => {
   }
   return true;
 };
+
 const createQuestionAndAnswer = () => {
-  const question = getRandomNumber(100);
+  const question = _.getRandomNumber(100);
   const answer = isPrime(question) ? 'yes' : 'no';
   return [question, answer];
 };
+
 const startIsPrimeGame = () => {
   const questionsAndAnswers = [];
   for (let i = 0; i < numberOfGames; i += 1) {
