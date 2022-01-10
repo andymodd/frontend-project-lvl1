@@ -18,9 +18,9 @@ const calculateExpression = (num1, num2, operator) => {
 };
 
 const createQuestionAndAnswer = () => {
-  const firstOperand = _.getRandomNumber(100);
-  const secondOperand = _.getRandomNumber(100);
-  const operator = arithmeticOperators[_.getRandomNumber(2)];
+  const firstOperand = _.random(100);
+  const secondOperand = _.random(100);
+  const operator = arithmeticOperators[_.random(2)];
   const question = `${firstOperand} ${operator} ${secondOperand}`;
   const answer = `${calculateExpression(firstOperand, secondOperand, operator)}`;
   return [question, answer];

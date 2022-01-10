@@ -19,7 +19,7 @@ const isPrime = (number) => {
 };
 
 const createQuestionAndAnswer = () => {
-  const question = _.getRandomNumber(100);
+  const question = _.random(100);
   const answer = isPrime(question) ? 'yes' : 'no';
   return [question, answer];
 };

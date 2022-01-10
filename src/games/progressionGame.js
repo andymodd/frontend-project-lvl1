@@ -13,11 +13,11 @@ const createProgression = (length, firstItem, stepOfProgresstion) => {
 };
 
 const createQuestionAndAnswer = () => {
-  const length = _.getRandomNumber(5, 10);
-  const firstItem = _.getRandomNumber(100);
-  const stepOfProgresstion = _.getRandomNumber(10);
+  const length = _.random(5, 10);
+  const firstItem = _.random(100);
+  const stepOfProgresstion = _.random(10);
   const progression = createProgression(length, firstItem, stepOfProgresstion);
-  const indexOfMissingItem = _.getRandomNumber(progression.length - 1);
+  const indexOfMissingItem = _.random(progression.length - 1);
   const answer = `${progression[indexOfMissingItem]}`;
   progression[indexOfMissingItem] = '..';
   const question = progression.join(' ');

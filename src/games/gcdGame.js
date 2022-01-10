@@ -12,8 +12,8 @@ const calculateGCD = (a, b) => {
 };
 
 const createQuestionAndAnswer = () => {
-  const firstNumber = _.getRandomNumber(100);
-  const secondNumber = _.getRandomNumber(100);
+  const firstNumber = _.random(100);
+  const secondNumber = _.random(100);
   const question = `${firstNumber} ${secondNumber}`;
   const answer = `${calculateGCD(firstNumber, secondNumber)}`;
   return [question, answer];
