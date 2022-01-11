@@ -7,11 +7,11 @@ const arithmeticOperators = ['+', '-', '*'];
 const calculateExpression = (num1, num2, operator) => {
   switch (operator) {
     case '+':
-      return +num1 + +num2;
+      return num1 + num2;
     case '-':
-      return +num1 - +num2;
+      return num1 - num2;
     case '*':
-      return +num1 * +num2;
+      return num1 * num2;
     default:
       throw new Error('invalid operator');
   }
@@ -20,7 +20,7 @@ const calculateExpression = (num1, num2, operator) => {
 const createQuestionAndAnswer = () => {
   const firstOperand = _.random(100);
   const secondOperand = _.random(100);
-  const operator = arithmeticOperators[_.random(2)];
+  const operator = arithmeticOperators[_.random(arithmeticOperators.length - 1)];
   const question = `${firstOperand} ${operator} ${secondOperand}`;
   const answer = `${calculateExpression(firstOperand, secondOperand, operator)}`;
   return [question, answer];

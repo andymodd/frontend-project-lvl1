@@ -3,7 +3,6 @@ import { startGame, numberOfGames } from '../index.js';
 
 const ruleOfGame = 'Find the greatest common divisor of given numbers.';
 
-// eslint-disable-next-line consistent-return
 const calculateGCD = (a, b) => {
   if (!b) {
     return a;
